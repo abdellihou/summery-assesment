@@ -58,9 +58,20 @@ function reduce(array, f, acc) {
 //solve it using the most appropriate helper functions(reduce,each,map,filter).
 //wordLengths("hello its me") // [5,3,2]
 
-function wordLengths(str) {
-    // TODO: your code here 
+//we split the string when we find a space and we put it into an array 
+//than we iterate over the new array and put the length of every word in a newArray
+
+
+function wordLengths(str ) {
+  var array=str.split(" ");
+  var newArray=[];
+     each (array, function (element,index) {
+    newArray.push(element.length)
+  })
+  return newArray;
 }
+
+
 
 //=============================================================================
 /*                                  Q2                                    */
@@ -71,8 +82,21 @@ function wordLengths(str) {
 // countOccurrences("hello", "l"); // 2
 // countOccurrences("hello, world!", "l"); // 3
 
-function countOccurrences(string, character) {
-    // your code is here
+
+//we put the string into an array 
+//we declare a counter with the value of 0
+//We iterate over this array and if the element inside the array is equal to the argument char we increase the count by 1
+
+function countOccurrences (str,char) {
+  var array=str.split("")
+  var count=0;
+  each (array,function(element,index){
+      if (element===char) {
+          count=count+1
+      }
+  })
+  return count
+
 }
 
 //=============================================================================
@@ -83,8 +107,20 @@ function countOccurrences(string, character) {
 //solve it using the most appropriate helper functions(reduce,each,map,filter).
 // wordsLongerThanThree("Hello Mad World") //["Hello", "World"]
 
+//we split the input string into an array when a "space" is found
+//we iterate through the array with each function
+//and if the length of the element of the array is more than 3 we add it into a new array
+
 function wordsLongerThanThree(str) {
-    // TODO: your code here 
+  var array = str.split(" ")
+  var newArray=[];
+  each (array, function (element,index){
+      if (element.length >3) {
+          newArray.push(element)
+      }
+  })
+  return newArray
+  
 }
 
 //=============================================================================
@@ -98,10 +134,18 @@ function wordsLongerThanThree(str) {
 //repeatString('dog', 2); // => 'dog' + 'dog' => 'dogdog' 
 //repeatString('dog', 3); // => 'dog' + 'dog' + 'dog' => 'dogdogdog'
 
+
+//if the count input is zero we return an empty string
+//if the count is more than zero we return the strin input + we call the function with (count-1)
+
 function repeatString(str, count) { 
- // TODO: your code here 
+  if (count===0) {
+      return ""
+  }
+  else {
+      return str + repeatString(str,count-1)
+  }
 } 
- 
 
 //=============================================================================
 /*                                  Q5                                       */
@@ -128,7 +172,34 @@ function repeatString(str, count) {
 // pizza.eatSlice();
 // pizza.eatSlice();
 
-// Write your code here .....
+
+//
+function makePizza (crust, size ,numberOfSlice) {
+  return {
+      crust:crust,
+      size:size,
+      numberOfSlice :numberOfSlice,
+      addIngredients : function (ingredient) {
+          return ingredient
+      },
+      displayIngredaints : function () {
+          return "The ingredients are " 
+      },
+      bakePizza : function () {
+          return "Your " + crust + " "+ size + " "+ numberOfSlice + " is done" ;
+      },
+       eatSlice : function () {
+           if (numberOfSlice>=0) {
+               return "you can eat Pizza"
+           }
+           numberOfSlice=numberOfSlice-1
+       }
+  };
+}
+
+
+//NOT FINISHED------------------------------------------>>>>>>>>>>>>>
+
 
 //=============================================================================
 /*                                  Q6                                      */
@@ -156,6 +227,8 @@ d- Decrement the number of "unread" books
 
 // Write your code here .....
 
+
+
 //=============================================================================
 /*                                  Q7                                       */
 //=============================================================================
@@ -174,8 +247,14 @@ d- Decrement the number of "unread" books
 //  safe('silver-bar','big') => "Can't fit"
 //  safe('money','small') => "watch gold-bar money"
 
-// Write your code here .....
+function makeSafe (n) {
+  return {
+      addItem : function (item, itemSize) {
+          
+      }
+  }
 
+}
 //=============================================================================
 /*                                  Q8                                       */
 //=============================================================================
@@ -191,6 +270,7 @@ d- Decrement the number of "unread" books
 
 //DO NOT USE JQUERY
 
+    //see folder 8
 //================================================================================
 /*                              Q9                                            */
 //================================================================================
@@ -211,17 +291,26 @@ d- Decrement the number of "unread" books
 //The function removes all the elements from the unordered list based on the checkboxes as the previous function
 //Use jQuery as much as you can in selecting elements and other tasks
 
+  //see folder 9
 //================================================================================
 /*                              Q10                                           */
 //================================================================================
 // Theoretical questions.
 // 1- In your own words,Why do we use Closures ?
 
+      // We use the closure to simplify our work . because with closure we return objects that can be modified
+
 // 2- In OOP, what does "this" refer to ?
+
+      //In OOP the word this refers to the variable inside the global function wich returns an object.
 
 // 3- What is jQuery?
 
+      // Jquery is a library of JAVASCRIPT , used to simplify the utilisation JAVASCRIPT with HTML and CSS
+
 // 4- what is the diffrence between Closure's methods and The OOP's methods?
+
+      // closures Method are declared inside the global function , while OOp methods are declared outside the function.
 
 
 
